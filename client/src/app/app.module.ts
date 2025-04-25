@@ -1,10 +1,13 @@
-import { APP_INITIALIZER, inject, NgModule, provideAppInitializer } from '@angular/core';
+import { inject, NgModule, provideAppInitializer } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule, provideHttpClient, withInterceptors, withInterceptorsFromDi } from '@angular/common/http';
 import { KeycloakService } from './services/keycloak/keycloak.service';
+import { FilmComponent } from './pages/film/film/film.component';
+import { FilmCardComponent } from './components/film-card/film-card.component';
+import { httpTokenInterceptor } from './services/interceptor/http-token.interceptor';
 
 
 export function KcFactory(kcService: KeycloakService) : Promise<any>{
@@ -13,14 +16,19 @@ export function KcFactory(kcService: KeycloakService) : Promise<any>{
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FilmComponent,
+    FilmCardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
-    provideAppInitializer(() => KcFactory(inject(KeycloakService)))
+    provideHttpClient(withInterceptors([httpTokenInterceptor])),
+    provideHttpClient(withInterceptorsFromDi()),
+    provideAppInitializer(() => KcFactory(inject(KeycloakService))),
+
   ],
   bootstrap: [AppComponent]
 })

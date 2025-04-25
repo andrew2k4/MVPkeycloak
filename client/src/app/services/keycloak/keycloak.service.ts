@@ -7,6 +7,7 @@ import { User } from './User';
 })
 export class KeycloakService {
 
+
   private _keycloak : Keycloak | undefined;
   private _user: User | undefined;
 
@@ -15,8 +16,9 @@ export class KeycloakService {
         this._keycloak = new Keycloak({
           url: 'http://localhost:8080',
           realm: 'andrew-backend',
-          clientId: 'public-client'
-        })
+          clientId: 'public-client',
+        },
+      )
       }
     return this._keycloak;
   }
@@ -31,7 +33,9 @@ export class KeycloakService {
 
   async init(): Promise<any>{
     const authenticated : boolean =  await this.keycloak?.init({
-      onLoad:'login-required'
+      onLoad:'login-required',
+      pkceMethod: 'S256',
+      flow: 'standard',
     })
 
     if(authenticated){
@@ -46,4 +50,14 @@ export class KeycloakService {
   login(){
     return this.keycloak?.login();
   }
+
+  register() {
+    return this.keycloak?.logout()
+  }
+
+  logout() {
+    return this.keycloak?.logout();
+  }
+
+
 }
