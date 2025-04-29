@@ -32,7 +32,7 @@ export class AppComponent implements OnInit{
   }
 
   isAuthenticated(){
-    if(this.keycloakService.keycloak.isTokenExpired()){
+    if(this.keycloakService.keycloak.authenticated){
       console.log("auth")
       this.isAuth = false
     }

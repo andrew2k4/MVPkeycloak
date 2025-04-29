@@ -1,0 +1,38 @@
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.title{
+    color: darkblue;
+    font-size: 50px;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 70%;
+}
+
+.login-input{
+    padding: 6px;
+    width: 100%;
+}
+
+
+.login-button{
+    padding: 12px;
+
+    font-weight: 500;
+
+    color: white;
+
+    background-color: lightblue;
+    
+    border: 0px solid blue;
+    border-radius: 10px;
+}

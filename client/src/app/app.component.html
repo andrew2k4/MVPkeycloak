@@ -1,21 +1,16 @@
 <main>
-
-    <nav *ngIf="!this.isAuth">
-      <button (click)="login()">
-        Login
-      </button>
-      <button (click)="register()">
-        Register
+  <nav *ngIf="!this.isAuth">
+    <button (click)="login()">
+      Login
+    </button>
+    <button (click)="logout()">
+      logout
+    </button>
+  </nav>
+    <nav *ngIf="this.isAuth">
+      <button (click)="logout()">
+        Logout
       </button>
     </nav>
-
-      <nav *ngIf="this.isAuth">
-        <button (click)="logout()">
-          Logout
-        </button>
-      </nav>
-
-
-
 </main>
 <router-outlet />

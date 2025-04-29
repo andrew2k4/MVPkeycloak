@@ -28,11 +28,7 @@ final class AuthentificationController extends AbstractController
         return $this->json([$film1, $film2, $film3, $film4]);
     }
 
-    #[Route('/registration', name: 'registration')]
-    public function registration(Request $request): JsonResponse
-    {
-        return $this->json([]);
-    }
+   
 
 
     private function AuthMiddleware(Request $request){
@@ -50,7 +46,6 @@ final class AuthentificationController extends AbstractController
             "Authorization" => $authorizationHeaders
         ]]);
        return true;
-
     }
 
 }

@@ -2,3 +2,6 @@
 <button (click)="getFilm()">
   get film
 </button>
+<div *ngIf="films">
+  <app-film-card [film]="films[0]"></app-film-card>
+</div>
