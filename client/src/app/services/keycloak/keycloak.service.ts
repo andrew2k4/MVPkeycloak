@@ -25,7 +25,6 @@ export class KeycloakService {
 
   get user(): User | undefined {
     return this._user;
-
   }
 
 
@@ -33,9 +32,10 @@ export class KeycloakService {
 
   async init(): Promise<any>{
     const authenticated : boolean =  await this.keycloak?.init({
-      onLoad:'login-required',
+      onLoad : 'check-sso',
       pkceMethod: 'S256',
       flow: 'standard',
+      checkLoginIframe: false
     })
 
     if(authenticated){
@@ -52,12 +52,11 @@ export class KeycloakService {
   }
 
   register() {
-    return this.keycloak?.logout()
+    return this.keycloak?.register()
   }
 
   logout() {
     return this.keycloak?.logout();
   }
-
 
 }
