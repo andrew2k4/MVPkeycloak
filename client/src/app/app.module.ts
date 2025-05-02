@@ -13,7 +13,9 @@ import { FilmComponent } from './pages/film/film.component';
 import {MatButtonModule} from '@angular/material/button';
 import { HomeComponent } from './pages/home/home.component';
 import {MatIconModule} from '@angular/material/icon';
-
+import {MatSelectModule} from '@angular/material/select';
+import {MatMenuModule} from '@angular/material/menu';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 
 export function KcFactory(kcService: KeycloakService) : Promise<any>{
     return  kcService.init();
@@ -24,14 +26,17 @@ export function KcFactory(kcService: KeycloakService) : Promise<any>{
     AppComponent,
     FilmComponent,
     FilmCardComponent,
-    HomeComponent
+    HomeComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatMenuModule,
     MatCardModule,
     MatButtonModule,
     MatIconModule,
+
   ],
   providers: [
     provideHttpClient(withInterceptors([httpTokenInterceptor])),

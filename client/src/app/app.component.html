@@ -30,7 +30,16 @@
           </li>
           <li id="account">
             <button mat-fab>
-              <mat-icon>account_circle</mat-icon>
+
+
+
+
+                <button  mat-icon-button  [matMenuTriggerFor]="menu" style="border-radius: 100%;">
+                  <mat-icon style="border-radius: 100%;" >person</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item [routerLink]='["/edit"]'>Edit</button>
+                </mat-menu>
 
             </button>
           </li>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { KeycloakService } from './services/keycloak/keycloak.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,11 @@ export class AppComponent implements OnInit{
 
   title = 'client';
   isAuth : boolean = false
+
+  toppings = new FormControl('');
+
+  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+
 
   ngOnInit(): void {
     this.isAuthenticated()
