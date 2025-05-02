@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { KeycloakService } from '../../services/keycloak/keycloak.service';
 import { User } from '../../services/keycloak/User';
+import { UserEditProfile } from '../../services/keycloak/UserEditProfile';
 
 @Component({
   selector: 'app-edit-profile',
@@ -10,15 +11,33 @@ import { User } from '../../services/keycloak/User';
 })
 export class EditProfileComponent {
 
-  user: User | undefined;
+
+  user : UserEditProfile = {
+    email: "",
+    firstname: "",
+    lastname: "",
+    credentials: [
+      {
+        type: "password",
+        value:  "",
+        temporary : false
+      }
+    ]
+  };
+
 
   constructor(private keycloakService : KeycloakService){
-    this.user = this.keycloakService.user;
+
+    this.user.email = this.keycloakService.user?.email;
+    this.user.firstname = this.keycloakService.user?.email;
+    this.user.lastname = this.keycloakService.user?.lastname;
+
   }
 
   editProfile(){
-     this.keycloakService.manageAccount();
+    this.keycloakService.updatePassword(this.user);
   }
+
 
 
 }
