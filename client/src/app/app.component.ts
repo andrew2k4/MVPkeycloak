@@ -8,15 +8,16 @@ import { KeycloakService } from './services/keycloak/keycloak.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit{
-  ngOnInit(): void {
-    console.log("a")
-    this.title = "jemang"
-  }
+
+
   title = 'client';
   isAuth : boolean = false
-  constructor(private keycloakService : KeycloakService){
-    console.log("a")
 
+  ngOnInit(): void {
+    this.isAuthenticated()
+  }
+
+  constructor(private keycloakService : KeycloakService){
   }
 
   login(){
@@ -32,12 +33,13 @@ export class AppComponent implements OnInit{
   }
 
   isAuthenticated(){
+
     if(this.keycloakService.keycloak.authenticated){
-      console.log("auth")
-      this.isAuth = false
+      this.isAuth = true
+      return
     }
 
-    this.isAuth = true
+    this.isAuth = false
   }
 
 }

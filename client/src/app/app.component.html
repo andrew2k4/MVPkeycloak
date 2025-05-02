@@ -1,16 +1,43 @@
 <main>
-  <nav *ngIf="!this.isAuth">
-    <button (click)="login()">
-      Login
-    </button>
-    <button (click)="logout()">
-      logout
-    </button>
+  <nav>
+    <h1>
+      KeycloakMVP
+    </h1>
+
+    <!-- when the user is not auth-->
+    <ng-container *ngIf="!this.isAuth">
+      <ul>
+        <li>
+          <button mat-button (click)="login()">
+            Login
+          </button>
+        </li>
+       <li>
+        <button mat-button (click)="register()">
+          Register
+        </button>
+       </li>
+      </ul>
+    </ng-container>
+
+    <!-- when the user is auth-->
+    <ng-container *ngIf="this.isAuth">
+        <ul>
+          <li>
+            <button mat-button (click)="logout()">
+              Logout
+            </button>
+          </li>
+          <li id="account">
+            <button mat-fab>
+              <mat-icon>account_circle</mat-icon>
+
+            </button>
+          </li>
+        </ul>
+    </ng-container>
+
   </nav>
-    <nav *ngIf="this.isAuth">
-      <button (click)="logout()">
-        Logout
-      </button>
-    </nav>
+
 </main>
 <router-outlet />

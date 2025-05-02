@@ -5,10 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideHttpClient, withInterceptors, withInterceptorsFromDi } from '@angular/common/http';
 import { KeycloakService } from './services/keycloak/keycloak.service';
-import { FilmComponent } from './pages/film/film/film.component';
+
 import { FilmCardComponent } from './components/film-card/film-card.component';
 import { httpTokenInterceptor } from './services/interceptor/http-token.interceptor';
 import {MatCardModule} from '@angular/material/card';
+import { FilmComponent } from './pages/film/film.component';
+import {MatButtonModule} from '@angular/material/button';
+import { HomeComponent } from './pages/home/home.component';
+import {MatIconModule} from '@angular/material/icon';
+
 
 export function KcFactory(kcService: KeycloakService) : Promise<any>{
     return  kcService.init();
@@ -18,12 +23,15 @@ export function KcFactory(kcService: KeycloakService) : Promise<any>{
   declarations: [
     AppComponent,
     FilmComponent,
-    FilmCardComponent
+    FilmCardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
   ],
   providers: [
     provideHttpClient(withInterceptors([httpTokenInterceptor])),
