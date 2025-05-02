@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login Form in HTML and CSS | CodingNepal</title>
-  <link rel="stylesheet" href="${url.resourcesPath}/css/styles.css" />
+  <link rel="stylesheet" href="${url.resourcesPath}/css/login.css" />
 </head>
 <body>
   <div class="login_form">
@@ -34,7 +34,7 @@
       <div class="input_box">
         <div class="password_title">
           <label for="password">Password</label>
-          <a href="#">Forgot Password?</a>
+          <a href="${url.loginResetCredentialsUrl}">Forgot Password?</a>
         </div>
         <input type="password" id="password" name="password" placeholder="Enter your password"  required />
       </div>
