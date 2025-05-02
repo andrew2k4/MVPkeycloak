@@ -38,9 +38,16 @@
         </div>
         <input type="password" id="password" name="password" placeholder="Enter your password"  required />
       </div>
+
+        <!-- Error Message -->
+         <#if usernameHidden?? && messagesPerField.existsError('username','password')>
+            <span id="input-error" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">
+                    ${kcSanitize(messagesPerField.getFirstError('username','password'))?no_esc}
+            </span>
+          </#if>
        <!-- Login button -->
       <button type="submit">Log In</button>
-      <p class="sign_up">Don't have an account? <a href="#">Sign up</a></p>
+      <p class="sign_up">Don't have an account? <a href="${url.registrationUrl}">Sign up</a></p>
     </form>
     <p>ta tete<p>
   </div>

@@ -9,4 +9,5 @@ services:
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=admin
     volumes:
-      - ./themes/demo:/opt/keycloak/themes/demo
+      - ./themes/test:/opt/keycloak/themes/test
+      
