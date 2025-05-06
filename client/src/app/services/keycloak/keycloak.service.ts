@@ -18,7 +18,7 @@ export class KeycloakService {
   get keycloak() {
       if(!this._keycloak){
         this._keycloak = new Keycloak({
-          url: 'http://localhost:8080',
+          url: 'http://localhost:7080',
           realm: 'andrew-backend',
           clientId: 'public-client',
         },
@@ -68,10 +68,7 @@ export class KeycloakService {
   }
 
   updatePassword(userEditProfile : UserEditProfile) {
-    this.httpClient.put("http://localhost:8080/auth/admin/realms/andrew-backend/users/"+ this.keycloak.tokenParsed?.sub,userEditProfile).pipe(
-      //map((res)  ),
-      //catchError(( )
-    )
+    this.httpClient.put("http://localhost:8080/auth/admin/realms/andrew-backend/users/"+ this.keycloak.tokenParsed?.sub,userEditProfile).subscribe((res) => console.log(res))
   }
 
 }

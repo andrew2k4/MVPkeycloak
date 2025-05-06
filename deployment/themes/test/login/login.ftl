@@ -15,7 +15,7 @@
       <div class="login_option">
         <!-- Github button -->
         <div class="option">
-          <a href="#">
+          <a href="${url.loginUrl('github')}">
             <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Apple" />
             <span>Github</span>
           </a>

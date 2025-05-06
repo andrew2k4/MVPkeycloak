@@ -27,14 +27,13 @@ export class EditProfileComponent {
 
 
   constructor(private keycloakService : KeycloakService){
-
-    this.user.email = this.keycloakService.user?.email;
-    this.user.firstname = this.keycloakService.user?.email;
-    this.user.lastname = this.keycloakService.user?.lastname;
-
+    this.user.email = this.keycloakService.keycloak.profile?.email;
+    this.user.firstname = this.keycloakService.keycloak.profile?.firstName;
+    this.user.lastname = this.keycloakService.keycloak.profile?.lastName;
   }
 
   editProfile(){
+    console.log("manger")
     this.keycloakService.updatePassword(this.user);
   }
 
