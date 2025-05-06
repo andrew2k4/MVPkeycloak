@@ -1,6 +1,8 @@
 services:
   mariadb:
     image: docker.io/mariadb:10
+    ports:
+      - 12345:3306
     environment:
       MARIADB_DATABASE: testdb
       MARIADB_ROOT_PASSWORD: root
