@@ -14,7 +14,6 @@
       <div class="login_option">
         <!-- Github button -->
         <div class="option">
-        // <
           <a href="${social.providers[0].loginUrl}">
             <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Apple" />
             <span>Github</span>
