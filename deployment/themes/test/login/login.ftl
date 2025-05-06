@@ -10,12 +10,11 @@
 <body>
   <div class="login_form">
     <!-- Login form container -->
-    <form action="${url.loginAction}" method="post">
-      <h3>Log in with</h3>
+    <h3>Log in with</h3>
       <div class="login_option">
         <!-- Github button -->
         <div class="option">
-          <a href="${url.loginUrl('github')}">
+          <a href="${social.providers[0].loginUrl}">
             <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Apple" />
             <span>Github</span>
           </a>
@@ -26,6 +25,8 @@
         <span>or</span>
       </p>
       <!-- Email input box -->
+    <form action="${url.loginAction}" method="post">
+      
       <div class="input_box">
         <label for="email">Email</label>
         <input type="text" id="username" name="username" placeholder="Enter email address" required />
@@ -51,5 +52,6 @@
     </form>
     <p>ta tete<p>
   </div>
+  
 </body>
 </html>
