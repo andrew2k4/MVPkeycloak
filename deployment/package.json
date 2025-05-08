@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@keycloak/keycloak-account-ui": "^26.2.4"
+  }
+}
