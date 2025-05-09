@@ -52,7 +52,9 @@ export class KeycloakService {
 
 
   login(){
-    return this.keycloak?.login();
+    return this.keycloak?.login({
+      locale: "fr"
+    });
   }
 
   register() {

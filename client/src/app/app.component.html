@@ -23,6 +23,11 @@
     <!-- when the user is auth-->
     <ng-container *ngIf="this.isAuth">
         <ul>
+          <li id="account">
+            <button mat-button [routerLink] = '["/film"]'>
+                Films
+            </button>
+          </li>
           <li>
             <button mat-button (click)="logout()">
               Logout
@@ -30,9 +35,6 @@
           </li>
           <li id="account">
             <button mat-fab>
-
-
-
 
                 <button  mat-icon-button  [matMenuTriggerFor]="menu" style="border-radius: 100%;">
                   <mat-icon style="border-radius: 100%;" >person</mat-icon>
@@ -43,6 +45,7 @@
 
             </button>
           </li>
+
         </ul>
     </ng-container>
 

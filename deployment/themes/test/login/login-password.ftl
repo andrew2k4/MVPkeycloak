@@ -9,27 +9,12 @@
 </head>
 <body>
   <div class="login_form">
-    <!-- Login form container -->
-    <h3>${msg("loginWith")}</h3>
-      <div class="login_option">
-        <!-- Github button -->
-        <div class="option">
-          <a href="${social.providers[0].loginUrl}">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Apple" />
-            <span>Github</span>
-          </a>
-        </div>
-      </div>
-      <!-- Login option separator -->
-      <p class="separator">
-        <span>or</span>
-      </p>
-      <!-- Email input box -->
+   
     <form action="${url.loginAction}" method="post">
       
       <div class="input_box">
-        <label for="email">Email</label>
-        <input type="text" id="username" name="username" placeholder="Enter email address" required />
+        <label for="password">password</label>
+        <input type="text" id="password-new" name="password-new" placeholder="Enter email address" required />
       </div>
       <!-- Paswwrod input box -->
       <div class="input_box">
@@ -37,7 +22,7 @@
           <label for="password">Password</label>
           <a href="${url.loginResetCredentialsUrl}">Forgot Password?</a>
         </div>
-        <input type="password" id="password" name="password" placeholder="Enter your password"  required />
+        <input type="password" id="password-confirm name="password-confirm" placeholder="Enter your password"  required />
       </div>
 
         <!-- Error Message -->

@@ -23,7 +23,7 @@
         <div class="password_title">
           <label for="password">Email</label>
         </div>
-        <input type="password" id="username" name="username" placeholder="Enter your email"  required />
+        <input type="text" id="username" name="username" placeholder="Enter your email"  required />
       </div>
 
        <!-- Reset button -->

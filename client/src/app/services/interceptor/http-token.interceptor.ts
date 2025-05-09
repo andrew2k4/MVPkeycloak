@@ -9,7 +9,7 @@ export const httpTokenInterceptor: HttpInterceptorFn = (req, next) => {
   const keycloakService = inject(KeycloakService);
 
   return from(
-    keycloakService.keycloak.updateToken(60)
+    keycloakService.keycloak.updateToken(10)
   ).pipe(
     mergeMap(()=>{
       const token = keycloakService.keycloak.token;

@@ -10,15 +10,10 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class AuthentificationController extends AbstractController
 {
-    #[Route('/films', name: 'login')]
+    #[Route('/films', name: 'films')]
     public function getFilms(Request $request): JsonResponse
     {   
-        $isAuth = $this->AuthMiddleware($request);
-
-
-        if(!$isAuth){
-            return $this->json(["error" => "No valid access Token"]);
-        }
+        
 
         $film1 = new Film(1, "game of throne", "", "the best film in the world");
         $film2 = new Film(1, "game of throne", "", "the best film in the world");
@@ -42,33 +37,12 @@ final class AuthentificationController extends AbstractController
 
         $client = HttpClient::create();
 
-        $response = $client->request('POST', 'http://localhost:8080/realms/andrew-backend/protocol/openid-connect/userinfo' , ["headers" => [
+        $response = $client->request('POST', 'http://localhost:7080/realms/andrew-backend/protocol/openid-connect/userinfo' , ["headers" => [
             "Authorization" => $authorizationHeaders
         ]]);
        return true;
     }
 
 
-    #[Route('/profile', name: 'login')]
-    public function editProfile(Request $request): JsonResponse
-    {   
-        $isAuth = $this->AuthMiddleware($request);
-
-
-        if(!$isAuth){
-            return $this->json(["error" => "No valid access Token"]);
-        }
-
-        $film1 = new Film(1, "game of throne", "", "the best film in the world");
-        $film2 = new Film(1, "game of throne", "", "the best film in the world");
-        $film3 = new Film(1, "game of throne", "", "the best film in the world");
-        $film4 = new Film(1, "game of throne", "", "the best film in the world");
-
-        return $this->json([$film1, $film2, $film3, $film4]);
-    }
-
-
-    private function getAdminAccessToken(){
-        
-    }
+  
 }

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-film',
@@ -7,7 +7,11 @@ import { Component } from '@angular/core';
   templateUrl: './film.component.html',
   styleUrl: './film.component.css'
 })
-export class FilmComponent {
+export class FilmComponent implements OnInit {
+
+  ngOnInit(){
+    this.getFilm()
+  }
 
   constructor(private httpClient: HttpClient){
 
